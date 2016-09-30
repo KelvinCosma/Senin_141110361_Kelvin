@@ -1,0 +1,9 @@
+D:\Program\Save\Visual C#\Semester_V\Senin_141110361_Kelvin\Latihan_1_1\bin\Debug\Latihan_1_1.exe.config
+D:\Program\Save\Visual C#\Semester_V\Senin_141110361_Kelvin\Latihan_1_1\bin\Debug\Latihan_1_1.exe
+D:\Program\Save\Visual C#\Semester_V\Senin_141110361_Kelvin\Latihan_1_1\bin\Debug\Latihan_1_1.pdb
+D:\Program\Save\Visual C#\Semester_V\Senin_141110361_Kelvin\Latihan_1_1\obj\Debug\Latihan_1_1.csprojResolveAssemblyReference.cache
+D:\Program\Save\Visual C#\Semester_V\Senin_141110361_Kelvin\Latihan_1_1\obj\Debug\Latihan_1_1.Form1.resources
+D:\Program\Save\Visual C#\Semester_V\Senin_141110361_Kelvin\Latihan_1_1\obj\Debug\Latihan_1_1.Properties.Resources.resources
+D:\Program\Save\Visual C#\Semester_V\Senin_141110361_Kelvin\Latihan_1_1\obj\Debug\Latihan_1_1.csproj.GenerateResource.Cache
+D:\Program\Save\Visual C#\Semester_V\Senin_141110361_Kelvin\Latihan_1_1\obj\Debug\Latihan_1_1.exe
+D:\Program\Save\Visual C#\Semester_V\Senin_141110361_Kelvin\Latihan_1_1\obj\Debug\Latihan_1_1.pdb
