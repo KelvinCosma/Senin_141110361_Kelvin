@@ -33,17 +33,17 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Scrollvalue2 = new System.Windows.Forms.Label();
+            this.Scrollvalue1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DateStat = new System.Windows.Forms.DateTimePicker();
+            this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
+            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.MinTxt = new System.Windows.Forms.Label();
             this.MaxTxt = new System.Windows.Forms.Label();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
-            this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
-            this.DateStat = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Scrollvalue2 = new System.Windows.Forms.Label();
-            this.Scrollvalue1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,85 @@
             this.tabPage1.Text = "Calendar";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // Scrollvalue2
+            // 
+            this.Scrollvalue2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Scrollvalue2.Location = new System.Drawing.Point(225, 86);
+            this.Scrollvalue2.Name = "Scrollvalue2";
+            this.Scrollvalue2.Size = new System.Drawing.Size(41, 20);
+            this.Scrollvalue2.TabIndex = 8;
+            this.Scrollvalue2.Text = "0";
+            this.Scrollvalue2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Scrollvalue1
+            // 
+            this.Scrollvalue1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Scrollvalue1.Location = new System.Drawing.Point(225, 60);
+            this.Scrollvalue1.Name = "Scrollvalue1";
+            this.Scrollvalue1.Size = new System.Drawing.Size(41, 20);
+            this.Scrollvalue1.TabIndex = 7;
+            this.Scrollvalue1.Text = "0";
+            this.Scrollvalue1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(104, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 32);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "5";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(188, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 32);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "10";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(20, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 32);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "0";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // DateStat
+            // 
+            this.DateStat.CustomFormat = "dd/MM/yyyy";
+            this.DateStat.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateStat.Location = new System.Drawing.Point(20, 120);
+            this.DateStat.Name = "DateStat";
+            this.DateStat.Size = new System.Drawing.Size(200, 20);
+            this.DateStat.TabIndex = 2;
+            // 
+            // hScrollBar2
+            // 
+            this.hScrollBar2.LargeChange = 1;
+            this.hScrollBar2.Location = new System.Drawing.Point(20, 86);
+            this.hScrollBar2.Maximum = 10;
+            this.hScrollBar2.Name = "hScrollBar2";
+            this.hScrollBar2.Size = new System.Drawing.Size(200, 20);
+            this.hScrollBar2.TabIndex = 1;
+            this.hScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TabPage1_Scrolled);
+            // 
+            // hScrollBar1
+            // 
+            this.hScrollBar1.LargeChange = 1;
+            this.hScrollBar1.Location = new System.Drawing.Point(20, 60);
+            this.hScrollBar1.Maximum = 10;
+            this.hScrollBar1.Name = "hScrollBar1";
+            this.hScrollBar1.Size = new System.Drawing.Size(200, 20);
+            this.hScrollBar1.TabIndex = 0;
+            this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TabPage1_Scrolled);
+            // 
             // tabPage2
             // 
             this.tabPage2.ImageKey = "Cog_B.png";
@@ -115,85 +194,6 @@
             this.MaxTxt.Size = new System.Drawing.Size(90, 17);
             this.MaxTxt.TabIndex = 2;
             this.MaxTxt.Text = "Max Value : -";
-            // 
-            // hScrollBar1
-            // 
-            this.hScrollBar1.LargeChange = 1;
-            this.hScrollBar1.Location = new System.Drawing.Point(20, 60);
-            this.hScrollBar1.Maximum = 10;
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(200, 20);
-            this.hScrollBar1.TabIndex = 0;
-            this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TabPage1_Scrolled);
-            // 
-            // hScrollBar2
-            // 
-            this.hScrollBar2.LargeChange = 1;
-            this.hScrollBar2.Location = new System.Drawing.Point(20, 86);
-            this.hScrollBar2.Maximum = 10;
-            this.hScrollBar2.Name = "hScrollBar2";
-            this.hScrollBar2.Size = new System.Drawing.Size(200, 20);
-            this.hScrollBar2.TabIndex = 1;
-            this.hScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TabPage1_Scrolled);
-            // 
-            // DateStat
-            // 
-            this.DateStat.CustomFormat = "dd/MM/yyyy";
-            this.DateStat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateStat.Location = new System.Drawing.Point(20, 120);
-            this.DateStat.Name = "DateStat";
-            this.DateStat.Size = new System.Drawing.Size(200, 20);
-            this.DateStat.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 32);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "0";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(188, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 32);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "10";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(104, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 32);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "5";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Scrollvalue2
-            // 
-            this.Scrollvalue2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Scrollvalue2.Location = new System.Drawing.Point(225, 86);
-            this.Scrollvalue2.Name = "Scrollvalue2";
-            this.Scrollvalue2.Size = new System.Drawing.Size(41, 20);
-            this.Scrollvalue2.TabIndex = 8;
-            this.Scrollvalue2.Text = "0";
-            this.Scrollvalue2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Scrollvalue1
-            // 
-            this.Scrollvalue1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Scrollvalue1.Location = new System.Drawing.Point(225, 60);
-            this.Scrollvalue1.Name = "Scrollvalue1";
-            this.Scrollvalue1.Size = new System.Drawing.Size(41, 20);
-            this.Scrollvalue1.TabIndex = 7;
-            this.Scrollvalue1.Text = "0";
-            this.Scrollvalue1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
