@@ -14,7 +14,7 @@ namespace Latihan_2_1
     {
         Dictionary<string, int> dmonth = new Dictionary<string, int>();
         string smonth = "";
-        DateTime date, sat2016 = new DateTime (2016, 1, 2), sun2016 = new DateTime(2016, 1, 3);
+        DateTime date;
 
         public Form1() {
             InitializeComponent();
@@ -28,9 +28,10 @@ namespace Latihan_2_1
                 dmonth.Add(smonth, i);
                 date = date.AddMonths(1);
             }
-            for (int i = 0; i < 53; i++) {
-                monthCalendar1.AddBoldedDate(sat2016); sat2016 = sat2016.AddDays(7);
-                monthCalendar1.AddBoldedDate(sun2016); sun2016 = sun2016.AddDays(7);
+            for (DateTime i = new DateTime(2016, 1, 1); i.Year < 2017 ; i = i.AddDays(1)) {
+                if (i.DayOfWeek == DayOfWeek.Saturday || i.DayOfWeek == DayOfWeek.Sunday) {
+                    monthCalendar1.AddBoldedDate(i);
+                }
             }
             monthCalendar1.AddAnnuallyBoldedDate(new DateTime(2016, 12, 28));
             monthCalendar1.UpdateBoldedDates();
