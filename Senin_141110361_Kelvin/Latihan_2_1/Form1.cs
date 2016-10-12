@@ -28,12 +28,12 @@ namespace Latihan_2_1
                 dmonth.Add(smonth, i);
                 date = date.AddMonths(1);
             }
+            monthCalendar1.AddAnnuallyBoldedDate(new DateTime(2016, 12, 28));
             for (DateTime i = new DateTime(2016, 1, 1); i.Year < 2017 ; i = i.AddDays(1)) {
                 if (i.DayOfWeek == DayOfWeek.Saturday || i.DayOfWeek == DayOfWeek.Sunday) {
                     monthCalendar1.AddBoldedDate(i);
                 }
             }
-            monthCalendar1.AddAnnuallyBoldedDate(new DateTime(2016, 12, 28));
             monthCalendar1.UpdateBoldedDates();
             Birth.Text = "Birth Date : 28 / 12 / 1996";
         }
