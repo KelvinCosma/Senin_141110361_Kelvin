@@ -41,7 +41,7 @@
             this.BackColor_comboBox = new System.Windows.Forms.ComboBox();
             this.FontSize_comboBox = new System.Windows.Forms.ComboBox();
             this.Font_Style = new System.Windows.Forms.Label();
-            this.Size = new System.Windows.Forms.Label();
+            this.Size1 = new System.Windows.Forms.Label();
             this.Font_Family = new System.Windows.Forms.Label();
             this.Fore_Color = new System.Windows.Forms.Label();
             this.Back_Color = new System.Windows.Forms.Label();
@@ -170,12 +170,12 @@
             // 
             // Size
             // 
-            this.Size.Location = new System.Drawing.Point(101, 30);
-            this.Size.Name = "Size";
-            this.Size.Size = new System.Drawing.Size(38, 15);
-            this.Size.TabIndex = 9;
-            this.Size.Text = "Size";
-            this.Size.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Size1.Location = new System.Drawing.Point(101, 30);
+            this.Size1.Name = "Size";
+            this.Size1.Size = new System.Drawing.Size(38, 15);
+            this.Size1.TabIndex = 9;
+            this.Size1.Text = "Size";
+            this.Size1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Font_Family
             // 
@@ -248,7 +248,7 @@
             this.Controls.Add(this.Back_Color);
             this.Controls.Add(this.Fore_Color);
             this.Controls.Add(this.Font_Family);
-            this.Controls.Add(this.Size);
+            this.Controls.Add(this.Size1);
             this.Controls.Add(this.Font_Style);
             this.Controls.Add(this.FontSize_comboBox);
             this.Controls.Add(this.BackColor_comboBox);
@@ -282,7 +282,7 @@
         private System.Windows.Forms.ComboBox BackColor_comboBox;
         private System.Windows.Forms.ComboBox FontSize_comboBox;
         private System.Windows.Forms.Label Font_Style;
-        private System.Windows.Forms.Label Size;
+        private System.Windows.Forms.Label Size1;
         private System.Windows.Forms.Label Font_Family;
         private System.Windows.Forms.Label Fore_Color;
         private System.Windows.Forms.Label Back_Color;

@@ -9,26 +9,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Latihan_4_1
+namespace Latihan_5_1
 {
     public partial class Form1 : Form
     {
-        string filepath = "";
         bool edited = false;
+        string filepath = "";
 
-        public Form1()
-        {
-            InitializeComponent();
-        }
+        public string getBgColor() { return richTextBox1.BackColor.Name; }
+        public void setBgColor(string color)
+        { richTextBox1.BackColor = Color.FromName(color); richTextBox1.SelectionBackColor = richTextBox1.BackColor; }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        public Form1() { InitializeComponent(); }
+
+        private void Form1_Load(object sender, EventArgs e) {
             foreach (FontFamily f in FontFamily.Families) { FontFamily_comboBox.Items.Add(f.Name); }
             for (double i = 6; i <= 72; i++) { FontSize_comboBox.Items.Add(i); }
             Type colorType = typeof(Color);
             PropertyInfo[] propInfoList = colorType.GetProperties(BindingFlags.Static |
                                   BindingFlags.DeclaredOnly | BindingFlags.Public);
-            foreach (PropertyInfo c in propInfoList) {
+            this.Color_comboBox.ComboBox.DrawMode = DrawMode.OwnerDrawFixed;
+            this.BackColor_comboBox.ComboBox.DrawMode = DrawMode.OwnerDrawFixed;
+            foreach (PropertyInfo c in propInfoList)
+            {
                 this.Color_comboBox.Items.Add(c.Name);
                 this.BackColor_comboBox.Items.Add(c.Name);
             }
@@ -40,6 +43,17 @@ namespace Latihan_4_1
             richTextBox1.ForeColor = Color.Black;
             richTextBox1.BackColor = Color.White;
             CheckText();
+            this.Color_comboBox.ComboBox.DrawItem += new DrawItemEventHandler(Color_comboBox_DrawItem);
+            this.BackColor_comboBox.ComboBox.DrawItem += new DrawItemEventHandler(BackColor_comboBox_DrawItem);
+            MdiClient client = Controls.OfType<MdiClient>().First();
+            client.GotFocus += (s, ev) =>
+            {
+                if (!MdiChildren.Any(setting => setting.Visible))
+                {
+                    client.SendToBack();
+                    richTextBox1.BringToFront();
+                }
+            };
         }
 
         private void Color_comboBox_DrawItem(object sender, DrawItemEventArgs e) {
@@ -80,6 +94,7 @@ namespace Latihan_4_1
                 if (richTextBox1.SelectionFont.Style.ToString().IndexOf("Underline") >= 0) { Underline_Button.Checked = true; }
             }
             else { FontFamily_comboBox.Text = ""; FontSize_comboBox.Text = ""; }
+            Color_comboBox.Text = richTextBox1.SelectionColor.Name;
             if (richTextBox1.SelectionColor.Name == "0") { Color_comboBox.Text = "Black"; }
             else { Color_comboBox.Text = richTextBox1.SelectionColor.Name; }
             if (richTextBox1.SelectionBackColor.Name == "0") { BackColor_comboBox.Text = "White"; }
@@ -253,6 +268,14 @@ namespace Latihan_4_1
             else { Application.ExitThread(); }
         }
 
+        private void editorToolStripMenuItem_Click(object sender, EventArgs e) {
+            Settings settingwindows = new Settings();
+            settingwindows.MdiParent = this;
+            settingwindows.BringToFront();
+            richTextBox1.SendToBack();
+            settingwindows.Show();
+        }
+
         private void Bold_Button_Click(object sender, EventArgs e) { CheckText("bold"); }
 
         private void Italic_Button_Click(object sender, EventArgs e) { CheckText("italic"); }
@@ -263,15 +286,18 @@ namespace Latihan_4_1
 
         private void FontFamily_comboBox_SelectedIndexChanged(object sender, EventArgs e) { CheckText(); }
 
-        private void Color_comboBox_SelectedIndexChanged(object sender, EventArgs e) {
+        private void Color_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             richTextBox1.SelectionColor = Color.FromName(Color_comboBox.Text);
         }
 
-        private void BackColor_comboBox_SelectedIndexChanged(object sender, EventArgs e) {
+        private void BackColor_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             richTextBox1.SelectionBackColor = Color.FromName(BackColor_comboBox.Text);
         }
 
-        private void CheckText(string text = null) {
+        private void CheckText(string text = null)
+        {
             bool isBold, isItalic, isUnderline;
             int start = richTextBox1.SelectionStart;
             int length = richTextBox1.SelectionLength;
@@ -321,6 +347,33 @@ namespace Latihan_4_1
             richTextBox1.Select(start, length);
             richTextBox1.SelectionChanged += new System.EventHandler(richTextBox1_SelectionChanged);
         }
+
+        private void richTextBox1_MouseUp(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Right) {
+                if (richTextBox1.SelectionLength == 0) {
+                    contextMenuStrip1.Items[0].Enabled = false;
+                    contextMenuStrip1.Items[1].Enabled = false;
+                    contextMenuStrip1.Items[3].Enabled = false;
+                }
+                else {
+                    contextMenuStrip1.Items[0].Enabled = true;
+                    contextMenuStrip1.Items[1].Enabled = true;
+                    contextMenuStrip1.Items[3].Enabled = true;
+                }
+                contextMenuStrip1.Show(Cursor.Position.X, Cursor.Position.Y);
+            }
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e) { richTextBox1.Cut(); }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e) { richTextBox1.Copy(); }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (Clipboard.ContainsText(TextDataFormat.Rtf))
+            { richTextBox1.SelectedRtf = Clipboard.GetText(TextDataFormat.Rtf); }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        { if (richTextBox1.SelectionLength == 0) { return; } richTextBox1.SelectedText = ""; }
     }
 }
-
