@@ -51,7 +51,7 @@ namespace Latihan_pos.Class
 
         public static Barang SelectID(int id) {
             Database.openConnection();
-            string selectString = String.Concat("SELECT * FORM ", tableName, " WHERE barang_id = @id");
+            string selectString = String.Concat("SELECT * FROM ", tableName, " WHERE barang_id = @id");
             MySqlDataAdapter DA = new MySqlDataAdapter();
             DA.SelectCommand = new MySqlCommand(selectString, Database.conn);
             DA.SelectCommand.Parameters.AddWithValue("@id", id);
@@ -112,7 +112,6 @@ namespace Latihan_pos.Class
             cmd.Parameters.AddWithValue("@jumlahAwal", jumlahAwal);
             cmd.Parameters.AddWithValue("@hargaHPP", hargaHPP);
             cmd.Parameters.AddWithValue("@hargaJual", hargaJual);
-            cmd.Parameters.AddWithValue("@createdAt", DateTime.Now);
             cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now);
             try {
                 Database.openConnection();

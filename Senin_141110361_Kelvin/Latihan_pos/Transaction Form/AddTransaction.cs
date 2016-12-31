@@ -506,7 +506,7 @@ namespace Latihan_pos
 
         private void BrowsePembelianCode_Click(object sender, EventArgs e)
         {
-            Browse browse = new Browse("pembelian");
+            Browse browse = new Browse("purchase");
             this.Hide();
             browse.ShowDialog();
             Dictionary<string, string> datas = browse.getData();
@@ -545,7 +545,7 @@ namespace Latihan_pos
 
         private void BrowsePenjualanCode_Click(object sender, EventArgs e)
         {
-            Browse browse = new Browse("penjualan");
+            Browse browse = new Browse("sale");
             this.Hide();
             browse.ShowDialog();
             Dictionary<string, string> datas = browse.getData();
@@ -664,7 +664,7 @@ namespace Latihan_pos
             string textKode = "", textHargaBarang = "", textKuantitas = "";
             foreach (Control item in AddPembelianPage.Controls) {
                 if (item is MetroTextBox) {
-                    if (item.Text == "") {
+                    if (item.Text == "" && item.Tag.ToString() != "TPembelian6") {
                         MessageBox.Show("Input must not be empty.");
                         return;
                     }
@@ -766,7 +766,7 @@ namespace Latihan_pos
             string textKode = "", textHargaBarang = "", textKuantitas = "";
             foreach (Control item in AddPenjualanPage.Controls) {
                 if (item is MetroTextBox) {
-                    if (item.Text == "") {
+                    if (item.Text == "" && item.Tag.ToString() != "TPenjualan6") {
                         MessageBox.Show("Input must not be empty.");
                         return;
                     }

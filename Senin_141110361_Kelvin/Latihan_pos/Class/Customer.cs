@@ -49,7 +49,7 @@ namespace Latihan_pos.Class
 
         public static Customer SelectID(int id) {
             Database.openConnection();
-            string selectString = String.Concat("SELECT * FORM ", tableName, " WHERE customer_id = @id");
+            string selectString = String.Concat("SELECT * FROM ", tableName, " WHERE customer_id = @id");
             MySqlDataAdapter DA = new MySqlDataAdapter();
             DA.SelectCommand = new MySqlCommand(selectString, Database.conn);
             DA.SelectCommand.Parameters.AddWithValue("@id", id);
@@ -103,15 +103,15 @@ namespace Latihan_pos.Class
         public void Update() {
             string updateString = String.Concat("UPDATE ", tableName,
                 " SET nama = @nama, alamat = @alamat, kode_pos = @kodePos, ",
-                "nomor_Telepon = @nomorTelepon, email = @email, updated_at = @updatedAt WHERE customer_id = @id");
+                "nomor_telepon = @nomorTelepon, email = @email, updated_at = @updatedAt WHERE customer_id = @id");
 
             MySqlCommand cmd = new MySqlCommand(updateString, Database.conn);
+            cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@nama", nama);
             cmd.Parameters.AddWithValue("@alamat", alamat);
             cmd.Parameters.AddWithValue("@kodePos", kodePos);
             cmd.Parameters.AddWithValue("@nomorTelepon", nomorTelepon);
             cmd.Parameters.AddWithValue("@email", email);
-            cmd.Parameters.AddWithValue("@createdAt", DateTime.Now);
             cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now);
             try {
                 Database.openConnection();
